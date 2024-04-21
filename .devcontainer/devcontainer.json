@@ -1,0 +1,41 @@
+{
+  "name": "Python 3.12 AWS CLI",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  "forwardPorts": [],
+
+  "features": {
+    "ghcr.io/devcontainers/features/aws-cli:1": {},
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "wayou.file-icons-mac",
+        "file-icons.file-icons",
+        "njpwerner.autodocstring",
+        "ms-python.autopep8",
+        "amazonwebservices.codewhisperer-for-command-line-companion",
+        "naumovs.color-highlight",
+        "ms-azuretools.vscode-docker",
+        "codezombiech.gitignore",
+        "ms-toolsai.jupyter",
+        "donjayamanne.python-extension-pack",
+        "redhat.vscode-yaml",
+        "mark-tucker.aws-cli-configure"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": { "zsh": { "path": "/bin/zsh" } }
+      }
+    }
+  },
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.zshrc,target=/home/vscode/.zshrc,type=bind,consistency=cached"
+  ]
+}
